@@ -1,0 +1,11 @@
+FROM ubuntu:xenial
+RUN apt-get update
+RUN apt-get install -y jq
+WORKDIR /opt/chimera/bin
+RUN curl --fail https://devops-cli-workshop.s3.eu-west-2.amazonaws.com/cliapp --output cliapp
+RUN chmod +x cliapp
+# The data folder should be shared with the webapp
+ENV DATA_FOLDER=/opt/chimera/data
+# Mounting a volume automatically creates the target folder, so you can delete this line once that is set up
+RUN mkdir $DATA_FOLDER
+RUN mkdir /var/log/chimera

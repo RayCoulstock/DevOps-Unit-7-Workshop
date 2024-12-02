@@ -438,7 +438,8 @@ You've now seen a dev container in action - let's try building one for ourselves
 
 [Here](https://github.com/corndeladmin/Chimera-webapp-python) is a repo for a Python version of the webapp half of Chimera. Your goal is to create a dev container that allows you to both run this Chimera web application, and also debug it.
 
-Use the Visual Studio Code documentation to create a dev container that successfully runs your application. The Chimera application will require Python 3 in order to successfully run. You already know how to run such an application from your machine, and by now you should also know how to run such an application from a container. Being able to develop this application from a dev container requires a fairly similar setup. 
+Use [the Visual Studio Code documentation](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container) to create a dev container that successfully runs your application. 
+The Chimera application will require Python 3.12 in order to successfully run. You already know how to run such an application from your machine, and by now you should also know how to run such an application from a container. Being able to develop this application from a dev container requires a fairly similar setup. 
 
 Once you've managed to do this, you'll be able to develop and debug this application from a machine that has VS Code and Docker installed, but doesn't need Python installed! Since Python will be running inside the dev container, it allows your machine's environment to stay a bit cleaner.
 

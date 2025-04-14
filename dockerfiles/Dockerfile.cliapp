@@ -1,11 +1,23 @@
 FROM ubuntu:xenial
 RUN apt-get update
 RUN apt-get install -y jq
+
+#added by Ray for cliapp
+RUN apt-get install -y curl 
+
 WORKDIR /opt/chimera/bin
 RUN curl --fail https://devops-cli-workshop.s3.eu-west-2.amazonaws.com/cliapp --output cliapp
 RUN chmod +x cliapp
+
+#Copy over the run.sh script and mark it as executable
+COPY ./run.sh ./run.sh
+RUN chmod +x ./run.sh
+
 # The data folder should be shared with the webapp
 ENV DATA_FOLDER=/opt/chimera/data
 # Mounting a volume automatically creates the target folder, so you can delete this line once that is set up
 RUN mkdir $DATA_FOLDER
 RUN mkdir /var/log/chimera
+
+# added by Ray to trigger run.sh at the end of the build
+ENTRYPOINT [ "./run.sh" ]

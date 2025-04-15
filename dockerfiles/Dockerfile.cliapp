@@ -10,7 +10,7 @@ RUN curl --fail https://devops-cli-workshop.s3.eu-west-2.amazonaws.com/cliapp --
 RUN chmod +x cliapp
 
 #Copy over the run.sh script and mark it as executable
-COPY ./run.sh ./run.sh
+COPY ./dockerfiles/run.sh ./run.sh
 RUN chmod +x ./run.sh
 
 # The data folder should be shared with the webapp

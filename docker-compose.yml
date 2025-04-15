@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  cliapp:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.cliapp
+    volumes:
+      - shared-data:/opt/chimera/data
+    container_name: cliapp
+
+  webapp:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.webapp
+    ports:
+      - "8080:80" # Maps port 80 in the container to port 8080 on the host
+    volumes:
+      - shared-data:/opt/chimera/data
+    container_name: webapp
+
+volumes:
+  shared-data:
